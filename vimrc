@@ -62,6 +62,9 @@ set nomodeline
 set history=100         " Number of lines of command line history.
 set undolevels=200      " Number of undo levels.
 
+" gui options
+set guioptions-=T       " no more toolbar
+
 " misc
 set mouse=a             " use mouse
 set ruler               " Show the line and column numbers of the cursor.
@@ -75,6 +78,7 @@ set ttyfast             " We have a fast terminal connection.
 set encoding=utf-8      " Set default encoding to UTF-8.
 set nostartofline       " Do not jump to first character with page commands
 set laststatus=2        " statusline on second last line
+
 
 
 " double j to enter command mode
@@ -103,6 +107,9 @@ nmap <leader>l :set list!<cr>
 
 " open vimrc quickly
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" open nerdtree
+nmap <leader>n :NERDTreeToggle<CR>
 
 " auto source vimrc when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
