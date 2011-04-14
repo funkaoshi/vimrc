@@ -11,10 +11,9 @@ set nocompatible
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-colorscheme wombat
-
 " Enable syntax-highlighting.
 syntax on
+colorscheme solarized
 
 " don't complain about unsaved buffers
 set hidden
@@ -106,7 +105,7 @@ nmap <leader>l :set list!<cr>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " auto source vimrc when saved
-" autocmd BufWritePost .vimrc source $MYVIMRC
+autocmd BufWritePost .vimrc source $MYVIMRC
 
 
 " command-t options
