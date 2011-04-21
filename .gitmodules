@@ -13,3 +13,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "bundle/sparkup"]
+	path = bundle/sparkup
+	url = http://github.com/bingaman/vim-sparkup.git

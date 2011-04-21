@@ -14,6 +14,7 @@ call pathogen#runtime_append_all_bundles()
 " Enable syntax-highlighting.
 syntax on
 colorscheme solarized
+set bg=dark
 
 " don't complain about unsaved buffers
 set hidden
@@ -64,6 +65,7 @@ set undolevels=200      " Number of undo levels.
 
 " gui options
 set guioptions-=T       " no more toolbar
+set nu
 
 " misc
 set mouse=a             " use mouse
@@ -117,6 +119,9 @@ autocmd BufWritePost .vimrc source $MYVIMRC
 
 " command-t options
 let g:CommandTMaxHeight = 10
+
+" sparkup options
+let g:sparkupNextMapping = '<c-x>'
 
 
 function! Preserve(command)
