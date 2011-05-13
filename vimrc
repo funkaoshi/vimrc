@@ -116,7 +116,6 @@ nmap <leader>n :NERDTreeToggle<CR>
 " auto source vimrc when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
 
-
 " command-t options
 let g:CommandTMaxHeight = 10
 
