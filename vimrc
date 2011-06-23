@@ -89,8 +89,9 @@ imap jj <ESC>
 " use ; instead of : when you want to run a command
 nnoremap ; :
 
-" Quit with 'q' instead of ':q'. VERY useful!
-map q :q<CR>
+" Quit with 'Q' instead of ':q'. VERY useful! Also
+" this means you can't open stupid-ass ed.
+map Q :q<CR>
 
 " Enable this if you mistype :w as :W or :q as :Q.
 nmap :W :w
