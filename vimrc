@@ -11,6 +11,9 @@ set nocompatible
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+" gui font
+set guifont=Consolas:h12
+
 " Enable syntax-highlighting.
 syntax on
 colorscheme solarized
@@ -36,6 +39,7 @@ set nowrap
 
 " default window size
 set columns=80
+set lines=60
 
 " tabstops
 set tabstop=4           " Number of spaces <tab> counts for.
@@ -46,6 +50,8 @@ set expandtab           " Tabs are turned to spaces.
 if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
+    autocmd FileType javascript setlocal sw=2 sts=2 ts=2
+
 endif
 
 " search settings
