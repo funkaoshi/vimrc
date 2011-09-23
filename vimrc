@@ -3,8 +3,7 @@
 " Author: Ramanan Sivaranjan
 "------------------------------------------------------------------------------
 
-" turn off vi compatibility, which makes sure all the commands we are going
-" to run will work with no wierd side effects.
+" to run will work with no weird side effects.
 set nocompatible
 
 " run pathogen to manage our plugins, all installed inside vim/bundles
@@ -17,7 +16,7 @@ set guifont=Consolas:h12
 " Enable syntax-highlighting.
 syntax on
 colorscheme solarized
-set bg=dark
+set bg=light
 
 " don't complain about unsaved buffers
 set hidden
@@ -38,8 +37,7 @@ set nosmartindent
 set nowrap
 
 " default window size
-set columns=80
-set lines=60
+set colorcolumn=80      " highlight the 80th column
 
 " tabstops
 set tabstop=4           " Number of spaces <tab> counts for.
@@ -51,7 +49,6 @@ if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
-
 endif
 
 " search settings
@@ -85,9 +82,14 @@ set magic               " Use 'magic' patterns (extended regular expressions).
 set ttyfast             " We have a fast terminal connection.
 set encoding=utf-8      " Set default encoding to UTF-8.
 set nostartofline       " Do not jump to first character with page commands
-set laststatus=2        " statusline on second last line
+set laststatus=2        " status line on second last line
 
+set spell spelllang=en_ca
 
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " double j to enter command mode
 imap jj <ESC>
