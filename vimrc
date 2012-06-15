@@ -25,7 +25,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set wildchar=<TAB>
-set wildignore+=*.o,*.obj,*.pyc,*.class,.git,.hg,*.orig
+set wildignore+=*.o,*.obj,*.pyc,*.class,.git,.hg,*.orig,static/**
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -49,6 +49,7 @@ if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
+    autocmd BufNewFile,BufRead *.json,.jshintrc set ft=javascript
 endif
 
 " search settings
