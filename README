@@ -1,0 +1,15 @@
+To install:
+
+ - symlink the directory to ~/.vim
+ - symlink the vimrc file within this directory to ~/.vimrc
+ - run the script setup.sh, which will set up the submodules
+   and command-t.
+
+To update the submodules yourself:
+
+ - git submodule foreach git pull origin master
+
+You can learn more about managing your .vim files using git 
+by reading this article: 
+
+- http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
