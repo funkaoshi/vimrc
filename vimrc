@@ -49,6 +49,8 @@ if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
+    autocmd BufNewFile,BufRead *.markdown,.md set ft=markdown
+    autocmd FileType markdown setlocal wrap wrapmargin=0 tw=0 linebreak
     autocmd BufNewFile,BufRead *.json,.jshintrc set ft=javascript
 endif
 
