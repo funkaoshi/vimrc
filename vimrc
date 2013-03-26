@@ -49,8 +49,6 @@ if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
-    autocmd BufNewFile,BufRead *.markdown,.md set ft=markdown
-    autocmd FileType markdown setlocal wrap wrapmargin=0 tw=0 linebreak
     autocmd BufNewFile,BufRead *.json,.jshintrc set ft=javascript
 endif
 
@@ -97,6 +95,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " double j to enter command mode
 imap jj <ESC>
 
+iab <expr> dts strftime("%d %b %Y")
+
 " use ; instead of : when you want to run a command
 nnoremap ; :
 
@@ -107,6 +107,9 @@ map Q :q<CR>
 " Enable this if you mistype :w as :W or :q as :Q.
 nmap :W :w
 nmap :Q :q
+
+map j gj
+map k gk
 
 " stop highlighting search
 nmap <silent> ,/ :nohlsearch<CR>
