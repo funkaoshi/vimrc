@@ -6,9 +6,32 @@
 " to run will work with no weird side effects.
 set nocompatible
 
-" run pathogen to manage our plugins, all installed inside vim/bundles
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+"
+" Setup Environment using Vundle
+"
+
+filetype off    " Required by Vundle
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tsaleh/vim-align'
+
+filetype plugin indent on   " required by Vundle
+
+"
+" Vundle setup complete
+"
+
 
 " gui font
 set guifont=Consolas:h12
@@ -49,7 +72,7 @@ if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
-    autocmd BufNewFile,BufRead *.json,.jshintrc set ft=javascript
+    autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
 endif
 
 " search settings
