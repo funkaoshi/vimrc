@@ -17,7 +17,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
@@ -119,6 +118,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 imap jj <ESC>
 
 iab <expr> dts strftime("%d %b %Y")
+
+iab settrace import pdb; pdb.set_trace()
 
 " use ; instead of : when you want to run a command
 nnoremap ; :
