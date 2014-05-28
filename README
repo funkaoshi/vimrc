@@ -2,5 +2,5 @@ To install:
 
  - symlink the directory to ~/.vim
  - symlink the vimrc file within this directory to ~/.vimrc
- - run BundleInstall inside Vim to install bundles using Vundle.
-
+ - grab vundle: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+ - run BundleInstall inside Vim to install bundles using Vundle
