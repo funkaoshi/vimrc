@@ -24,6 +24,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tsaleh/vim-align'
+Bundle 'rodjek/vim-puppet'
 
 filetype plugin indent on   " required by Vundle
 
@@ -48,6 +49,7 @@ set wildmenu
 set wildmode=list:longest
 set wildchar=<TAB>
 set wildignore+=*.o,*.obj,*.pyc,*.class,.git,.hg,*.orig,static/**
+set wildignore+=*.har,node_modules
 
 " Show partial commands in the last line of the screen
 set showcmd
@@ -70,7 +72,7 @@ set expandtab           " Tabs are turned to spaces.
 if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
-    autocmd FileType javascript setlocal sw=2 sts=2 ts=2
+    autocmd FileType javascript setlocal sw=4 sts=4 ts=4
     autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
 endif
 
