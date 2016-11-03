@@ -16,15 +16,17 @@ filetype off    " Required by Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tsaleh/vim-align'
-Bundle 'rodjek/vim-puppet'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tsaleh/vim-align'
+Plugin 'editorconfig/editorconfig-vim'
 
 filetype plugin indent on   " required by Vundle
 
@@ -34,12 +36,11 @@ filetype plugin indent on   " required by Vundle
 
 
 " gui font
-set guifont=Consolas:h12
+set guifont="Source Code Pro:h12"
 
 " Enable syntax-highlighting.
 syntax on
-colorscheme solarized
-set bg=light
+colorscheme flattened_dark
 
 " don't complain about unsaved buffers
 set hidden
@@ -72,7 +73,7 @@ set expandtab           " Tabs are turned to spaces.
 if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
-    autocmd FileType javascript setlocal sw=4 sts=4 ts=4
+    autocmd FileType javascript setlocal sw=2 sts=2 ts=2
     autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
 endif
 
