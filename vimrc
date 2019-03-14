@@ -18,15 +18,16 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tsaleh/vim-align'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'w0rp/ale'
 
 filetype plugin indent on   " required by Vundle
 
@@ -94,7 +95,7 @@ set undolevels=200      " Number of undo levels.
 
 " gui options
 set guioptions-=T       " no more toolbar
-set nu
+set number              " display line number on left
 
 " misc
 set mouse=a             " use mouse
@@ -111,6 +112,7 @@ set nostartofline       " Do not jump to first character with page commands
 set laststatus=2        " status line on second last line
 
 set spell spelllang=en_ca
+
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -138,9 +140,6 @@ nmap :Q :q
 map j gj
 map k gk
 
-" stop highlighting search
-nmap <silent> ,/ :nohlsearch<CR>
-
 " change leader from \ to ,
 let mapleader=","
 
@@ -149,11 +148,15 @@ let mapleader=","
 set listchars=tab:>-,trail:·,eol:¬
 nmap <leader>l :set list!<cr>
 
+" stop highlighting search
+nmap <silent> ,/ :nohlsearch<CR>
+
+" nicer copy and paste to mac clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+
 " open vimrc quickly
 nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" open nerdtree
-nmap <leader>n :NERDTreeToggle<CR>
 
 " auto source vimrc when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
@@ -161,24 +164,8 @@ autocmd BufWritePost .vimrc source $MYVIMRC
 " command-t options
 let g:CommandTMaxHeight = 10
 
-" sparkup options
-let g:sparkupNextMapping = '<c-x>'
 
-
-function! Preserve(command)
-    "Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    execute a:command
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" clean up trailing witespace
-nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
-
-" clean up trailing white space on save
-autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
+" ALE config
+let g:ale_fix_on_save = 1
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
