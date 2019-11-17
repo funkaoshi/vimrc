@@ -28,6 +28,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tsaleh/vim-align'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'w0rp/ale'
+Plugin 'fatih/vim-go'
 
 filetype plugin indent on   " required by Vundle
 
