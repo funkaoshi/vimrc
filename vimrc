@@ -99,16 +99,15 @@ set guioptions-=T       " no more toolbar
 set number              " display line number on left
 
 " misc
+set encoding=utf-8      " Set default encoding to UTF-8.
 set mouse=a             " use mouse
 set ruler               " Show the line and column numbers of the cursor.
 set showmode            " Show current mode.
 set showmatch           " Show matching brackets.
 set scrolloff=5         " Keep a context when scrolling.
 set noerrorbells        " No beeps.
-set esckeys             " Cursor keys in insert mode.
 set magic               " Use 'magic' patterns (extended regular expressions).
 set ttyfast             " We have a fast terminal connection.
-set encoding=utf-8      " Set default encoding to UTF-8.
 set nostartofline       " Do not jump to first character with page commands
 set laststatus=2        " status line on second last line
 
@@ -146,8 +145,8 @@ let mapleader=","
 
 " Tell vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-set listchars=tab:>-,trail:·,eol:¬
 nmap <leader>l :set list!<cr>
+set list listchars=tab:>\ ,trail:-,eol:$
 
 " stop highlighting search
 nmap <silent> ,/ :nohlsearch<CR>
