@@ -7,35 +7,25 @@
 set nocompatible
 
 "
-" Setup Environment using Vundle
+" Setup Environment using vim-plug
 "
 
-filetype off    " Required by Vundle
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+Plug 'kien/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'rodjek/vim-puppet'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tsaleh/vim-align'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+Plug 'fatih/vim-go'
 
-Plugin 'gmarik/vundle'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'rodjek/vim-puppet'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tsaleh/vim-align'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'w0rp/ale'
-Plugin 'fatih/vim-go'
-
-filetype plugin indent on   " required by Vundle
-
-"
-" Vundle setup complete
-"
-
+call plug#end()
 
 " gui font
 set guifont="Source Code Pro:h12"
@@ -145,8 +135,8 @@ let mapleader=","
 
 " Tell vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-nmap <leader>l :set list!<cr>
-set list listchars=tab:>\ ,trail:-,eol:$
+" nmap <leader>l :set list!<cr>
+" set list listchars=tab:>\ ,trail:-,eol:$
 
 " stop highlighting search
 nmap <silent> ,/ :nohlsearch<CR>
