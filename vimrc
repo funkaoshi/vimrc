@@ -12,7 +12,8 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'kien/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -137,6 +138,12 @@ let mapleader=","
 " trailing whitespace, and end-of-lines. VERY useful!
 " nmap <leader>l :set list!<cr>
 " set list listchars=tab:>\ ,trail:-,eol:$
+
+
+" fzf mappings
+let g:fzf_command_prefix = 'Fzf'
+map <silent> <C-p> :FzfFiles<CR>
+
 
 " stop highlighting search
 nmap <silent> ,/ :nohlsearch<CR>

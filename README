@@ -3,4 +3,5 @@ To install:
  - symlink the directory to ~/.vim
  - symlink the vimrc file within this directory to ~/.vimrc
  - grab vim-plug: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ - `brew install fzf`
  - run PlugInstall inside Vim to install bundles using vim-plug
