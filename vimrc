@@ -25,15 +25,17 @@ Plug 'tsaleh/vim-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-" gui font
-set guifont="Source Code Pro:h12"
-
 " Enable syntax-highlighting.
 syntax on
-colorscheme flattened_dark
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " don't complain about unsaved buffers
 set hidden
@@ -67,6 +69,7 @@ if has("autocmd")
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
+    autocmd FileType markdown setlocal wrap linebreak
     autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
 endif
 
@@ -104,12 +107,6 @@ set laststatus=2        " status line on second last line
 
 set spell spelllang=en_ca
 
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 " double j to enter command mode
 imap jj <ESC>
 
@@ -128,8 +125,11 @@ map Q :q<CR>
 nmap :W :w
 nmap :Q :q
 
-map j gj
-map k gk
+" Move through softwraped text
+noremap j gj
+noremap <down> gj
+noremap k gk
+noremap <up> gk
 
 " change leader from \ to ,
 let mapleader=","
@@ -139,11 +139,9 @@ let mapleader=","
 " nmap <leader>l :set list!<cr>
 " set list listchars=tab:>\ ,trail:-,eol:$
 
-
 " fzf mappings
 let g:fzf_command_prefix = 'Fzf'
 map <silent> <C-p> :FzfFiles<CR>
-
 
 " stop highlighting search
 nmap <silent> ,/ :nohlsearch<CR>
@@ -161,6 +159,9 @@ autocmd BufWritePost .vimrc source $MYVIMRC
 " command-t options
 let g:CommandTMaxHeight = 10
 
+" Markdown Config
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
 
 " ALE config
 let g:ale_fix_on_save = 1
