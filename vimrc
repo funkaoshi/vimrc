@@ -78,12 +78,7 @@ set expandtab           " Tabs are turned to spaces.
 
 if has("autocmd")
     " language specific formatting
-    autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
-    autocmd FileType ruby setlocal sw=2 sts=2 ts=2
-    autocmd FileType javascript setlocal sw=2 sts=2 ts=2
-    autocmd FileType markdown setlocal wrap linebreak
     autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
-
     " auto source vimrc when saved
     autocmd BufWritePost .vimrc source $MYVIMRC
 endif
@@ -125,7 +120,7 @@ set spell spelllang=en_ca
 "
 " shortcuts / keybindings
 "
-"
+
 " change leader from \ to ,
 let mapleader=","
 
@@ -172,14 +167,7 @@ noremap <Leader>p "*p
 " open vimrc quickly
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" Markdown Config
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_folding_disabled = 1
-
 " ALE config
 let g:ale_fix_on_save = 1
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
-
-" Rust Config
-let g:rustfmt_autosave = 1
