@@ -4,12 +4,12 @@ This repository contains the configuration I use when running [`vim`][]. This
 is a fairly minimal vimrc, a good starting point for someone who wants to fork
 and extend with their own customizations.
 
-[`vim-plug`][] is used to manage vim plugins. Notable plugins used include:
-[`ale`] for (async) linting, [`fzf`][] for quickly opening files,
-[`vim-airline`][] for a helpful status bar, and [`goyo`][] for distraction
+[vim-plug][] is used to manage vim plugins. Notable plugins used include:
+[ale] for (async) linting, [fzf][] for quickly opening files,
+[vim-airline][] for a helpful status bar, and [goyo][] for distraction
 free text editing. 
 
-[`gruvbox`][] is the vim colour theme.
+[gruvbox][] is the vim colour theme.
 
 ## Pre-requisites
 
