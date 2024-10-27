@@ -12,23 +12,34 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug '/usr/local/opt/fzf'
+" file searching
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" colour scheme
+Plug 'morhetz/gruvbox'
+" async syntax / linting
+Plug 'dense-analysis/ale'
+" commandline bar
 Plug 'vim-airline/vim-airline'
+" focus-mode text editing
+Plug 'junegunn/goyo.vim'
+" quickly comment / uncomment text
+Plug 'tpope/vim-commentary'
+" git integration
+Plug 'tpope/vim-fugitive'
+" quickly align text
+Plug 'tsaleh/vim-align'
+Plug 'godlygeek/tabular'
+" editor config integration
+Plug 'editorconfig/editorconfig-vim'
+" language specific plugins
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'rodjek/vim-puppet'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tsaleh/vim-align'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'w0rp/ale'
 Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-Plug 'junegunn/goyo.vim'
-Plug 'morhetz/gruvbox'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -66,11 +77,15 @@ set shiftwidth=4        " Number of spaces used when autoindenting and indenting
 set expandtab           " Tabs are turned to spaces.
 
 if has("autocmd")
+    " language specific formatting
     autocmd Filetype make setlocal sw=8 sts=8 ts=8 noexpandtab
     autocmd FileType ruby setlocal sw=2 sts=2 ts=2
     autocmd FileType javascript setlocal sw=2 sts=2 ts=2
     autocmd FileType markdown setlocal wrap linebreak
     autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
+
+    " auto source vimrc when saved
+    autocmd BufWritePost .vimrc source $MYVIMRC
 endif
 
 " search settings
@@ -107,12 +122,18 @@ set laststatus=2        " status line on second last line
 
 set spell spelllang=en_ca
 
+"
+" shortcuts / keybindings
+"
+"
+" change leader from \ to ,
+let mapleader=","
+
 " double j to enter command mode
 imap jj <ESC>
 
+" generate ISO date 
 iab <expr> dts strftime("%d %b %Y")
-
-iab settrace import pdb; pdb.set_trace()
 
 " use ; instead of : when you want to run a command
 nnoremap ; :
@@ -131,13 +152,11 @@ noremap <down> gj
 noremap k gk
 noremap <up> gk
 
-" change leader from \ to ,
-let mapleader=","
-
 " Tell vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-" nmap <leader>l :set list!<cr>
-" set list listchars=tab:>\ ,trail:-,eol:$
+nmap <leader>l :set list!<cr>
+set list listchars=tab:>\ ,trail:-,eol:$
+set nolist
 
 " fzf mappings
 let g:fzf_command_prefix = 'Fzf'
@@ -153,12 +172,6 @@ noremap <Leader>p "*p
 " open vimrc quickly
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" auto source vimrc when saved
-autocmd BufWritePost .vimrc source $MYVIMRC
-
-" command-t options
-let g:CommandTMaxHeight = 10
-
 " Markdown Config
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
@@ -167,3 +180,6 @@ let g:vim_markdown_folding_disabled = 1
 let g:ale_fix_on_save = 1
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
+
+" Rust Config
+let g:rustfmt_autosave = 1
