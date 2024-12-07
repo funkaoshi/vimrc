@@ -127,7 +127,7 @@ let mapleader=","
 " double j to enter command mode
 imap jj <ESC>
 
-" generate ISO date 
+" generate ISO date
 iab <expr> dts strftime("%d %b %Y")
 
 " use ; instead of : when you want to run a command
@@ -168,6 +168,12 @@ noremap <Leader>p "*p
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " ALE config
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ }
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
+nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
