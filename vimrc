@@ -21,6 +21,8 @@ Plug 'morhetz/gruvbox'
 Plug 'dense-analysis/ale'
 " commandline bar
 Plug 'vim-airline/vim-airline'
+" built-in terminal
+Plug 'voldikss/vim-floaterm'
 " focus-mode text editing
 Plug 'junegunn/goyo.vim'
 " quickly comment / uncomment text
@@ -167,6 +169,9 @@ noremap <Leader>p "*p
 " open vimrc quickly
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
+" open terminal quickly
+noremap <silent> <Leader>ft :FloatermNew<CR>
+
 " ALE config
 set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
@@ -176,4 +181,4 @@ let g:ale_fixers = {
 \ }
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
-nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
+nmap <silent> <leader>ad :ALEGoToDefinition<CR>
