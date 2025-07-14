@@ -42,6 +42,7 @@ Plug 'rodjek/vim-puppet'
 Plug 'fatih/vim-go'
 Plug 'preservim/vim-markdown'
 Plug 'rust-lang/rust.vim'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
@@ -49,6 +50,7 @@ call plug#end()
 syntax on
 let g:gruvbox_italic=1
 colorscheme gruvbox
+set background=dark
 
 " don't complain about unsaved buffers
 set hidden
@@ -68,6 +70,7 @@ filetype plugin indent on
 set autoindent
 set nosmartindent
 set nowrap
+let g:indentLine_char = '⦙'
 
 " default window size
 set colorcolumn=80      " highlight the 80th column
@@ -80,7 +83,9 @@ set expandtab           " Tabs are turned to spaces.
 
 if has("autocmd")
     " language specific formatting
-    autocmd BufNewFile,BufRead *.json,.jshintrc setlocal ft=javascript
+    autocmd BufNewFile,BufRead .jshintrc setlocal ft=javascript
+    autocmd BufNewFile,BufRead .hujson setlocal ft=json
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
     " auto source vimrc when saved
     autocmd BufWritePost .vimrc source $MYVIMRC
 endif
